@@ -1,0 +1,20 @@
+name: solidarity_sms_app
+description: A new Flutter project for sending solidarity SMS messages.
+publish_to: 'none' # Remove this line if you are publishing to a package repository.
+
+environment:
+  sdk: '^3.7.0'  # قيد إصدار Dart SDK
+
+dependencies:
+  flutter:
+    sdk: flutter
+  permission_handler: ^10.0.0
+  flutter_sms: ^2.0.0
+  http: ^1.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
