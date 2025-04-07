@@ -1,6 +1,6 @@
 plugins {
     id("com.android.application")
-    kotlin("android") version "1.5.21"  // تأكد من تحديث النسخة إلى النسخة المناسبة
+    kotlin("android")  // إزالة النسخة هنا
 }
 
 android {
@@ -21,14 +21,14 @@ android {
         }
     }
 
-    // إضافة إعدادات Kotlin
+    // إعدادات Kotlin
     kotlinOptions {
         jvmTarget = "1.8"
     }
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.21")  // تأكد من تحديث النسخة هنا
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7")  // تم إزالة تحديد النسخة هنا أيضًا
     implementation("com.android.tools.build:gradle:7.0.2")  // تأكد من توافقه مع Gradle و Java
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
@@ -41,4 +41,3 @@ repositories {
     google()
     mavenCentral()
 }
-
