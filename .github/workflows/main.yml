@@ -1,39 +1,27 @@
-name: Build APK for Flutter
-
-on:
-  push:
-    branches:
-      - main  # أو الفرع الذي تستخدمه (مثل master)
-
 jobs:
   build:
-    runs-on: ubuntu-latest  # بيئة البناء ستكون على Ubuntu
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2  # لاستنساخ الكود من مستودع GitHub
+      uses: actions/checkout@v2
 
     - name: Set up Java 17
       uses: actions/setup-java@v2
       with:
-        java-version: '17'  # استخدام Java 17
-        distribution: 'zulu'  # تحديد التوزيع Zulu لـ Java 17
+        java-version: '17'
+        distribution: 'zulu'
 
     - name: Set up Flutter
-      uses: subosito/flutter-action@v2  # إعداد Flutter
+      uses: subosito/flutter-action@v2
 
     - name: Install dependencies
-      run: flutter pub get  # تثبيت الحزم المطلوبة
+      run: flutter pub get
 
-    - name: Update Gradle version
+    - name: Set up Kotlin
       run: |
-        sed -i 's/gradle-6\.[0-9]\.[0-9]-all/gradle-7.3.3-all/' android/gradle/wrapper/gradle-wrapper.properties  # تحديث Gradle لـ 7.3.3
+        sudo apt-get update
+        sudo apt-get install kotlin
 
     - name: Build APK
-      run: flutter build apk --release  # بناء ملف APK للإصدار النهائي
-
-    - name: Upload APK
-      uses: actions/upload-artifact@v4  # رفع APK بعد بناءه
-      with:
-        name: app-release
-        path: build/app/outputs/flutter-apk/app-release.apk  # المسار الذي يوجد فيه APK بعد بناءه
+      run: flutter build apk --release
