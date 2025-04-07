@@ -1,8 +1,14 @@
 allprojects {
+   buildscript {
     repositories {
         google()
         mavenCentral()
     }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.2' // أو النسخة المتوافقة معك
+    }
+}
+
 }
 
 val newBuildDir: Directory = rootProject.layout.buildDirectory.dir("../../build").get()
